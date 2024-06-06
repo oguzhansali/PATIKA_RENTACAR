@@ -4,14 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9f28cab3-e875-4574-addd-d2ccd44dc95b" name="Changes" comment="Marka ekleme işlemleri yapıldı.">
+    <list default="true" id="9f28cab3-e875-4574-addd-d2ccd44dc95b" name="Changes" comment=".">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/business/BrandManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/business/BrandManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/core/Helper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/Helper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/dao/BrandDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/BrandDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/entity/Brand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entity/Brand.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/view/AdminView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/AdminView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/BrandView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/BrandView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/Layout.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/Layout.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,6 +38,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Application.AdminView.executor": "Run",
     "Application.App.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
@@ -105,13 +105,30 @@
       <option name="project" value="LOCAL" />
       <updated>1717679748126</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Marka ekleme işlemleri yapıldı.">
+      <option name="closed" value="true" />
+      <created>1717684302632</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1717684302632</updated>
+    </task>
+    <task id="LOCAL-00004" summary=".">
+      <option name="closed" value="true" />
+      <created>1717684335985</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1717684335985</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Kullanıcı girişi yapıldı." />
     <MESSAGE value="Marka ekleme işlemleri yapıldı." />
-    <option name="LAST_COMMIT_MESSAGE" value="Marka ekleme işlemleri yapıldı." />
+    <MESSAGE value="." />
+    <option name="LAST_COMMIT_MESSAGE" value="." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
