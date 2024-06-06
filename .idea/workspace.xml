@@ -4,16 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9f28cab3-e875-4574-addd-d2ccd44dc95b" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/dao/UserDao.java" afterDir="false" />
+    <list default="true" id="9f28cab3-e875-4574-addd-d2ccd44dc95b" name="Changes" comment="Kullanıcı girişi yapıldı.">
+      <change afterPath="$PROJECT_DIR$/src/business/BrandManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/dao/BrandDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/Brand.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/view/AdminView.form" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/view/AdminView.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/view/BrandView.form" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/view/BrandView.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/view/Layout.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PATIKA_RENTACAR.iml" beforeDir="false" afterPath="$PROJECT_DIR$/PATIKA_RENTACAR.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/business/UserManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/business/UserManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/core/Db.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/Db.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/core/Helper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/Helper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entity/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/LoginView.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/LoginView.form" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/view/LoginView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/LoginView.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -31,9 +32,9 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 0
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 0
+}</component>
   <component name="ProjectId" id="2hT0uOgp9ncRgIA2ABdQ3Rc6yPf" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -46,6 +47,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "UI_DESIGNER_EDITOR_MODE.PaletteManager.WIDTH": "299",
     "git-widget-placeholder": "master",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/oguzh/IdeaProjects/PATIKA_RENTACAR/postgresql-42.7.3 (2).jar",
@@ -90,14 +92,27 @@
       <option name="presentableId" value="Default" />
       <updated>1717602981841</updated>
     </task>
+    <task id="LOCAL-00001" summary="Kullanıcı girişi yapıldı.">
+      <option name="closed" value="true" />
+      <created>1717614901931</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1717614901931</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Kullanıcı girişi yapıldı." />
+    <option name="LAST_COMMIT_MESSAGE" value="Kullanıcı girişi yapıldı." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/App.java</url>
-          <line>7</line>
+          <line>9</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>
