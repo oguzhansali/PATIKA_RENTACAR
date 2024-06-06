@@ -69,7 +69,7 @@ public class AdminView extends Layout {
             });
         });
         this.brandMenu.add("Sil");
-
+        /*
         //Sağ tıklama sorununu bu şekilde çözdüm!!!
         this.tbl_brand.addMouseListener(new MouseAdapter() {
             @Override
@@ -87,7 +87,7 @@ public class AdminView extends Layout {
                     brandMenu.show(e.getComponent(), e.getX(), e.getY());
                 }
             }
-        });
+        });*/
 
         this.tbl_brand.setComponentPopupMenu(brandMenu);
     }
