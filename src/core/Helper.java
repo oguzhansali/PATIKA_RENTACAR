@@ -35,6 +35,9 @@ public class Helper {
                 msg=" Kayıt Bulunamadı!";
                 title="Bulunamadı.";
                 break;
+            case "error":
+                msg="Hatalı işlem yaptınız.";
+                title="Hata!";
             default:
                 msg = str;
                 title = "Mesaj";

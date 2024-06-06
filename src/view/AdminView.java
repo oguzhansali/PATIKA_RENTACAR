@@ -6,6 +6,8 @@ import entity.User;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.util.ArrayList;
 
 import java.awt.event.MouseAdapter;
@@ -36,19 +38,7 @@ public class AdminView extends Layout {
         }
         this.lbl_welcome.setText("Hoşgeldiniz : " + this.user.getUsername());
 
-        Object[] col_brand = {"Marka ID", "Marka Adı"};
-        ArrayList<Brand> brandList = this.brandManager.findAll();
-        this.tmdl_brand.setColumnIdentifiers(col_brand);
-        for (Brand brand : brandList) {
-            Object[] obj = {brand.getId(), brand.getName()};
-            this.tmdl_brand.addRow(obj);
-        }
-
-        this.tbl_brand.setModel(this.tmdl_brand);
-        this.tbl_brand.getTableHeader().setReorderingAllowed(false);
-        this.tbl_brand.setEnabled(false);//Verilerin değişmesini false yapar.
-
-        //satıra sağ tık ile  iişlem yapılacak satır seçilmiş olur.
+        loadBrandTable();
         this.tbl_brand.addMouseListener(new MouseAdapter() {
             @Override
             public void mousePressed(MouseEvent e){
@@ -58,12 +48,26 @@ public class AdminView extends Layout {
         });
 
 
-
         this.brandMenu = new JPopupMenu();
         this.brandMenu.add("Yeni").addActionListener(e -> {
             BrandView brandView = new BrandView(null);
+            brandView.addWindowListener(new WindowAdapter() {
+                @Override
+                public void windowClosed(WindowEvent e) {
+                    loadBrandTable();
+                }
+            });
         });
-        this.brandMenu.add("Güncelle");
+        this.brandMenu.add("Güncelle").addActionListener(e -> {
+            int selectBrandId= Integer.parseInt(tbl_brand.getValueAt(tbl_brand.getSelectedRow(),0).toString());
+            BrandView brandView = new BrandView(this.brandManager.getById(selectBrandId));
+            brandView.addWindowListener(new WindowAdapter() {
+                @Override
+                public void windowClosed(WindowEvent e) {
+                    loadBrandTable();
+                }
+            });
+        });
         this.brandMenu.add("Sil");
 
         //Sağ tıklama sorununu bu şekilde çözdüm!!!
@@ -86,6 +90,26 @@ public class AdminView extends Layout {
         });
 
         this.tbl_brand.setComponentPopupMenu(brandMenu);
+    }
+
+    public void loadBrandTable(){
+        Object[] col_brand = {"Marka ID", "Marka Adı"};
+        ArrayList<Brand> brandList = this.brandManager.findAll();
+        this.tmdl_brand.setColumnIdentifiers(col_brand);
+
+
+        this.tbl_brand.setModel(this.tmdl_brand);
+        this.tbl_brand.getTableHeader().setReorderingAllowed(false);
+        this.tbl_brand.setEnabled(false);//Verilerin değişmesini false yapar.
+
+        DefaultTableModel clearModel = (DefaultTableModel) tbl_brand.getModel();
+        clearModel.setRowCount(0);
+        for (Brand brand : brandList) {
+            Object[] obj = {brand.getId(), brand.getName()};
+            this.tmdl_brand.addRow(obj);
+        }
+
+
     }
 
 
