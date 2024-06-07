@@ -4,6 +4,8 @@ import javax.swing.*;
 import java.awt.*;
 
 public class Helper {
+    private JTextField fld_model_year;
+
     public static void setTheme() {
         for (UIManager.LookAndFeelInfo info : UIManager.getInstalledLookAndFeels()) {
             if ("Nimbus".equals(info.getName())) {

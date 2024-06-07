@@ -4,12 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9f28cab3-e875-4574-addd-d2ccd44dc95b" name="Changes" comment=".">
+    <list default="true" id="9f28cab3-e875-4574-addd-d2ccd44dc95b" name="Changes" comment="Marka componentleri eklendi.">
+      <change afterPath="$PROJECT_DIR$/src/business/ModelManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/core/ComboItem.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/dao/ModelDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/Model.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/business/BrandManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/business/BrandManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/core/Helper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/Helper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dao/BrandDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/BrandDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/AdminView.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/AdminView.form" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/view/AdminView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/AdminView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/BrandView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/BrandView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/view/Layout.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/Layout.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -44,6 +49,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "UI_DESIGNER_EDITOR_MODE.PaletteManager.WIDTH": "299",
+    "UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH": "266",
     "git-widget-placeholder": "master",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/oguzh/IdeaProjects/PATIKA_RENTACAR/postgresql-42.7.3 (2).jar",
@@ -121,14 +127,23 @@
       <option name="project" value="LOCAL" />
       <updated>1717684335985</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Marka componentleri eklendi.">
+      <option name="closed" value="true" />
+      <created>1717689443109</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1717689443109</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Kullanıcı girişi yapıldı." />
     <MESSAGE value="Marka ekleme işlemleri yapıldı." />
     <MESSAGE value="." />
-    <option name="LAST_COMMIT_MESSAGE" value="." />
+    <MESSAGE value="Marka componentleri eklendi." />
+    <option name="LAST_COMMIT_MESSAGE" value="Marka componentleri eklendi." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

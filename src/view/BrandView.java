@@ -6,9 +6,6 @@ import business.BrandManager;
 import core.Helper;
 import entity.Brand;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-
 public class BrandView extends Layout {
     private JPanel container;
     private JLabel lbl_brand;
