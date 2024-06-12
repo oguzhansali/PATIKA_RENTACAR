@@ -4,20 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9f28cab3-e875-4574-addd-d2ccd44dc95b" name="Changes" comment="Modelllerin eklenmesi ve Filtrelenmesi.">
-      <change afterPath="$PROJECT_DIR$/src/business/CarManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/dao/CarDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/entity/Car.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/view/CarView.form" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/view/CarView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/core/Helper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/Helper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dao/BrandDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/BrandDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dao/ModelDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/ModelDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/entity/Model.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entity/Model.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/AdminView.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/AdminView.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/AdminView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/AdminView.java" afterDir="false" />
-    </list>
+    <list default="true" id="9f28cab3-e875-4574-addd-d2ccd44dc95b" name="Changes" comment="Araçlar sekmesinin eklenmesi." />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -42,25 +29,25 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.AdminView.executor": "Run",
-    "Application.App.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "UI_DESIGNER_EDITOR_MODE.PaletteManager.WIDTH": "299",
-    "UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH": "662",
-    "git-widget-placeholder": "master",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/oguzh/IdeaProjects/PATIKA_RENTACAR/postgresql-42.7.3 (2).jar",
-    "onboarding.tips.debug.path": "C:/Users/oguzh/IdeaProjects/PATIKA_RENTACAR/src/Main.java",
-    "project.structure.last.edited": "Libraries",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.lookFeel"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.AdminView.executor&quot;: &quot;Run&quot;,
+    &quot;Application.App.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;UI_DESIGNER_EDITOR_MODE.PaletteManager.WIDTH&quot;: &quot;299&quot;,
+    &quot;UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH&quot;: &quot;662&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/oguzh/IdeaProjects/PATIKA_RENTACAR/postgresql-42.7.3 (2).jar&quot;,
+    &quot;onboarding.tips.debug.path&quot;: &quot;C:/Users/oguzh/IdeaProjects/PATIKA_RENTACAR/src/Main.java&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\oguzh\IdeaProjects\PATIKA_RENTACAR" />
@@ -144,7 +131,23 @@
       <option name="project" value="LOCAL" />
       <updated>1717791376657</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Araçlar sekmesinin eklenmesi.">
+      <option name="closed" value="true" />
+      <created>1718186529703</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1718186529704</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Araçlar sekmesinin eklenmesi.">
+      <option name="closed" value="true" />
+      <created>1718186637466</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1718186637466</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -153,7 +156,8 @@
     <MESSAGE value="." />
     <MESSAGE value="Marka componentleri eklendi." />
     <MESSAGE value="Modelllerin eklenmesi ve Filtrelenmesi." />
-    <option name="LAST_COMMIT_MESSAGE" value="Modelllerin eklenmesi ve Filtrelenmesi." />
+    <MESSAGE value="Araçlar sekmesinin eklenmesi." />
+    <option name="LAST_COMMIT_MESSAGE" value="Araçlar sekmesinin eklenmesi." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
