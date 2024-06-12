@@ -57,14 +57,14 @@ public class ModelDao {
     public boolean save(Model model) {
         String query = "INSERT INTO public.model" +
                 "(" +
-                "model_brand_id," +
-                "model_name," +
-                "model_type," +
-                "model_year," +
-                "model_fuel," +
-                "model_gear" +
+                "model_brand_id, " +
+                "model_name, " +
+                "model_type, " +
+                "model_year, " +
+                "model_fuel , " +
+                "model_gear " +
                 ")" +
-                "VALUES(?,?,?,?,?,?)";
+                " VALUES(?,?,?,?,?,?)";
         try {
             PreparedStatement pr = con.prepareStatement(query);
             pr.setInt(1, model.getBrand_id());
@@ -81,14 +81,14 @@ public class ModelDao {
     }
 
     public boolean update(Model model) {
-        String query = "UPDATE public.mode SET" +
-                "model_brand_id=?," +
-                "model_name=?," +
-                "model_type=?," +
-                "model_year=?," +
-                "model_fuel=?," +
-                "model_gear=?" +
-                "WHERE model_id=?";
+        String query = "UPDATE public.model SET " +
+                "model_brand_id = ? ,"  +
+                "model_name = ?," +
+                "model_type = ?, " +
+                "model_year = ?, " +
+                "model_fuel = ?, " +
+                "model_gear = ? " +
+                " WHERE model_id = ? ";
         try {
             PreparedStatement pr = con.prepareStatement(query);
             pr.setInt(1, model.getBrand_id());
@@ -106,7 +106,7 @@ public class ModelDao {
     }
 
     public boolean delete(int model_id) {
-        String query = "DELETE FROM public.model WHERE model_id=?";
+        String query = "DELETE FROM public.model WHERE model_id = ? ";
         try {
             PreparedStatement pr = con.prepareStatement(query);
             pr.setInt(1, model_id);

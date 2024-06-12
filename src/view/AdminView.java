@@ -3,10 +3,12 @@
 package view;
 
 import business.BrandManager;
+import business.CarManager;
 import business.ModelManager;
 import core.ComboItem;
 import core.Helper;
 import entity.Brand;
+import entity.Car;
 import entity.Model;
 import entity.User;
 
@@ -37,19 +39,26 @@ public class AdminView extends Layout {
     private JComboBox<Model.Fuel> cmb_s_model_fuel;
     private JComboBox<Model.Gear> cmb_s_model_gear;
     private JButton btn_cncl_model;
+    private JPanel pnl_car;
+    private JScrollPane scl_car;
     private User user;
     private DefaultTableModel tmdl_brand = new DefaultTableModel();
     private DefaultTableModel tmdl_model = new DefaultTableModel();
+    private DefaultTableModel tmdl_car = new DefaultTableModel();
     private BrandManager brandManager;
     private ModelManager modelManager;
+    private JTable tbl_car;
+    private CarManager carManager;
     private JPopupMenu brand_menu;
     private JPopupMenu model_menu;
+    private JPopupMenu car_menu;
     private Object[] col_model;
 
 
     public AdminView(User user) {
         this.brandManager = new BrandManager();
         this.modelManager = new ModelManager();
+        this.carManager = new CarManager();
         this.add(container);
         this.guiInitilaze(1000, 500);
         this.user = user;
@@ -59,12 +68,18 @@ public class AdminView extends Layout {
         }
         this.lbl_welcome.setText("Hoşgeldiniz : " + this.user.getUsername());
 
+        //Brand Tab Menu
         loadBrandTable();
         loadBrandComponent();
 
+        //Model Tab Menu
         loadModelTable(null);
         loadModelComponent();
         loadModelFilter();
+
+        //Car Tab Menu
+        loadCarTable();
+        loadCarComponent();
 
         //Sağ tıklama sorununu bu şekilde çözdüm!!!
         this.tbl_brand.addMouseListener(new MouseAdapter() {
@@ -108,11 +123,33 @@ public class AdminView extends Layout {
         });
 
         this.tbl_model.setComponentPopupMenu(model_menu);
+
+
+        //Sağ tıklama sorununu bu şekilde çözdüm!!!
+        this.tbl_car.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mousePressed(MouseEvent e) {
+                showPopup(e);
+            }
+
+            @Override
+            public void mouseReleased(MouseEvent e) {
+                showPopup(e);
+            }
+
+            private void showPopup(MouseEvent e) {
+                if (e.isPopupTrigger()) {
+                    car_menu.show(e.getComponent(), e.getX(), e.getY());
+                }
+            }
+        });
+
+        this.tbl_car.setComponentPopupMenu(car_menu);
     }
 
     public void loadModelTable(ArrayList<Object[]> modelList) {
-        this.col_model =new Object[] {"Model ID", "Marka", "Model Adı", "Tip", "Yıl", "Yakıt Türü", "Vites"};
-        if (modelList==null){
+        this.col_model = new Object[]{"Model ID", "Marka", "Model Adı", "Tip", "Yıl", "Yakıt Türü", "Vites"};
+        if (modelList == null) {
             modelList = this.modelManager.getForTable(this.col_model.length, this.modelManager.findAll());
         }
 
@@ -159,16 +196,18 @@ public class AdminView extends Layout {
                 @Override
                 public void windowClosed(WindowEvent e) {
                     loadModelTable(null);
+                    loadCarTable();
                 }
             });
 
         });
         this.model_menu.add("Sil").addActionListener(e -> {
-            if (Helper.cofirm("sure")) {
+            if (Helper.confirm("sure")) {
                 int selectModelId = this.getTableSelectedRow(tbl_model, 0);
                 if (this.modelManager.delete(selectModelId)) {
                     Helper.showMsg("done");
                     loadModelTable(null);
+                    loadCarTable();
                 } else {
                     Helper.showMsg("error");
                 }
@@ -177,17 +216,17 @@ public class AdminView extends Layout {
         });
         this.btn_search_model.addActionListener(e -> {
             ComboItem selectedBrand = (ComboItem) this.cmb_s_model_brand.getSelectedItem();
-            int brandId=0;
-            if (selectedBrand!=null){
-                brandId=selectedBrand.getKey();
+            int brandId = 0;
+            if (selectedBrand != null) {
+                brandId = selectedBrand.getKey();
             }
             ArrayList<Model> modelListBySearch = this.modelManager.searchForTable(
-                     brandId,
+                    brandId,
                     (Model.Fuel) cmb_s_model_fuel.getSelectedItem(),
                     (Model.Gear) cmb_s_model_gear.getSelectedItem(),
                     (Model.Type) cmb_s_model_type.getSelectedItem()
             );
-            ArrayList<Object[]> modelRowListBySearch = this.modelManager.getForTable(this.col_model.length,modelListBySearch);
+            ArrayList<Object[]> modelRowListBySearch = this.modelManager.getForTable(this.col_model.length, modelListBySearch);
             loadModelTable(modelRowListBySearch);
         });
         this.btn_cncl_model.addActionListener(e -> {
@@ -225,17 +264,19 @@ public class AdminView extends Layout {
                     loadBrandTable();
                     loadModelTable(null);
                     loadModelFilterBrand();
+                    loadCarTable();
                 }
             });
         });
         this.brand_menu.add("Sil").addActionListener(e -> {
-            if (Helper.cofirm("sure")) {
+            if (Helper.confirm("sure")) {
                 int selectBrandId = this.getTableSelectedRow(tbl_brand, 0);
                 if (this.brandManager.delete(selectBrandId)) {
                     Helper.showMsg("done");
                     loadBrandTable();
                     loadModelTable(null);
                     loadModelFilterBrand();
+                    loadCarTable();
                 } else {
                     Helper.showMsg("error");
                 }
@@ -251,6 +292,55 @@ public class AdminView extends Layout {
         this.createTable(this.tmdl_brand, this.tbl_brand, col_brand, brandList);
 
 
+    }
+
+    public void loadCarComponent() {
+        tableRowSelect(this.tbl_car);
+        this.car_menu = new JPopupMenu();
+        this.car_menu.add("Yeni").addActionListener(e -> {
+            CarView carView = new CarView(new Car());
+
+            carView.addWindowListener(new WindowAdapter() {
+                @Override
+                public void windowClosed(WindowEvent e) {
+                    loadCarTable();
+
+                }
+            });
+
+        });
+        this.car_menu.add("Güncelle").addActionListener(e -> {
+            int selectModelId = this.getTableSelectedRow(tbl_car, 0);
+            CarView carView = new CarView(this.carManager.getById(selectModelId));
+            carView.addWindowListener(new WindowAdapter() {
+                @Override
+                public void windowClosed(WindowEvent e) {
+                    loadCarTable();
+
+                }
+            });
+
+
+        });
+        this.car_menu.add("Sil").addActionListener(e -> {
+            if (Helper.confirm("sure")) {
+                int selectCarId = this.getTableSelectedRow(tbl_car, 0);
+                if (this.carManager.delete(selectCarId)) {
+                    Helper.showMsg("done");
+                    loadCarTable();
+                } else {
+                    Helper.showMsg("error");
+                }
+            }
+
+        });
+
+    }
+
+    public void loadCarTable() {
+        Object[] col_car = {"ID", "Marka", "Model", "Plaka", "Renk", "KM", "Yıl", "Tip", "Yakıt Türü", "Vites"};
+        ArrayList<Object[]> carList = this.carManager.getForTable(col_car.length, this.carManager.findAll());
+        createTable(this.tmdl_car, this.tbl_car, col_car, carList);
     }
 
 

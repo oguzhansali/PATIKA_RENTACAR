@@ -50,7 +50,7 @@ public class Helper {
         JOptionPane.showMessageDialog(null, msg, title, JOptionPane.INFORMATION_MESSAGE);
 
     }
-    public static  boolean cofirm(String str){
+    public static  boolean confirm(String str){
         optionPaneTR();
         String msg;
         if (str.equals("sure")){

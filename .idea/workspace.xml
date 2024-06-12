@@ -4,18 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9f28cab3-e875-4574-addd-d2ccd44dc95b" name="Changes" comment="Marka componentleri eklendi.">
-      <change afterPath="$PROJECT_DIR$/src/business/ModelManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/core/ComboItem.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/dao/ModelDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/entity/Model.java" afterDir="false" />
+    <list default="true" id="9f28cab3-e875-4574-addd-d2ccd44dc95b" name="Changes" comment="Modelllerin eklenmesi ve Filtrelenmesi.">
+      <change afterPath="$PROJECT_DIR$/src/business/CarManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/dao/CarDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/Car.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/view/CarView.form" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/view/CarView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/business/BrandManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/business/BrandManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/core/Helper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/Helper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dao/BrandDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/BrandDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dao/ModelDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/ModelDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entity/Model.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entity/Model.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/view/AdminView.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/AdminView.form" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/view/AdminView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/AdminView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/BrandView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/BrandView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/Layout.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/Layout.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,7 +50,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "UI_DESIGNER_EDITOR_MODE.PaletteManager.WIDTH": "299",
-    "UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH": "266",
+    "UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH": "662",
     "git-widget-placeholder": "master",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/oguzh/IdeaProjects/PATIKA_RENTACAR/postgresql-42.7.3 (2).jar",
@@ -135,7 +136,15 @@
       <option name="project" value="LOCAL" />
       <updated>1717689443109</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Modelllerin eklenmesi ve Filtrelenmesi.">
+      <option name="closed" value="true" />
+      <created>1717791376657</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1717791376657</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -143,7 +152,8 @@
     <MESSAGE value="Marka ekleme işlemleri yapıldı." />
     <MESSAGE value="." />
     <MESSAGE value="Marka componentleri eklendi." />
-    <option name="LAST_COMMIT_MESSAGE" value="Marka componentleri eklendi." />
+    <MESSAGE value="Modelllerin eklenmesi ve Filtrelenmesi." />
+    <option name="LAST_COMMIT_MESSAGE" value="Modelllerin eklenmesi ve Filtrelenmesi." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
