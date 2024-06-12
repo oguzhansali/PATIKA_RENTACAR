@@ -64,7 +64,7 @@ public class CarDao {
         return car;
     }
     public boolean update(Car car){
-        String query="UPDATE public.car SET"+
+        String query="UPDATE public.car SET "+
                 "car_model_id = ? , "+
                 "car_color = ? , "+
                 "car_km = ? , "+
@@ -77,6 +77,7 @@ public class CarDao {
             pr.setInt(3,car.getKm());
             pr.setString(4, car.getPlate());
             pr.setInt(5,car.getId());
+            return pr.executeUpdate()!=-1;
         }catch (SQLException throwables){
             throwables.printStackTrace();
         }
