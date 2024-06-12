@@ -35,7 +35,7 @@
             <border type="none"/>
             <children>
               <grid id="d6786" binding="pnl_booking" layout-manager="GridLayoutManager" row-count="2" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
-                <margin top="0" left="0" bottom="0" right="0"/>
+                <margin top="10" left="10" bottom="10" right="10"/>
                 <constraints>
                   <tabbedpane title="Yeni Kiralama"/>
                 </constraints>
@@ -117,7 +117,7 @@
                           <text value="Araç Bul"/>
                         </properties>
                       </component>
-                      <component id="6c70c" class="javax.swing.JFormattedTextField" binding="fld_strt_date">
+                      <component id="6c70c" class="javax.swing.JFormattedTextField" binding="fld_strt_date" custom-create="true">
                         <constraints>
                           <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false">
                             <preferred-size width="150" height="-1"/>
@@ -125,7 +125,7 @@
                         </constraints>
                         <properties/>
                       </component>
-                      <component id="28054" class="javax.swing.JFormattedTextField" binding="fld_fnsh_date">
+                      <component id="28054" class="javax.swing.JFormattedTextField" binding="fld_fnsh_date" custom-create="true">
                         <constraints>
                           <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false">
                             <preferred-size width="150" height="-1"/>
@@ -144,6 +144,14 @@
                           <grid row="1" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
                         </constraints>
                         <properties/>
+                      </component>
+                      <component id="196b" class="javax.swing.JButton" binding="btn_cncl_booking">
+                        <constraints>
+                          <grid row="2" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                        </constraints>
+                        <properties>
+                          <text value="Sıfırla"/>
+                        </properties>
                       </component>
                     </children>
                   </grid>

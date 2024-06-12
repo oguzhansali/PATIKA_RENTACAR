@@ -14,7 +14,9 @@ import entity.User;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.text.MaskFormatter;
 import java.awt.event.*;
+import java.text.ParseException;
 import java.util.ArrayList;
 
 public class AdminView extends Layout {
@@ -55,12 +57,14 @@ public class AdminView extends Layout {
     private JComboBox<Model.Type> cmb_booking_type;
     private JButton btn_booking_search;
     private JPanel pnl_booking_search;
+    private JButton btn_cncl_booking;
     private CarManager carManager;
     private JPopupMenu brand_menu;
     private JPopupMenu model_menu;
     private JPopupMenu car_menu;
     private JPopupMenu booking_menu;
     private Object[] col_model;
+    private Object[] col_car;
 
 
     public AdminView(User user) {
@@ -375,7 +379,7 @@ public class AdminView extends Layout {
     }
 
     public void loadCarTable() {
-        Object[] col_car = {"ID", "Marka", "Model", "Plaka", "Renk", "KM", "Yıl", "Tip", "Yakıt Türü", "Vites"};
+        col_car = new Object[]{"ID", "Marka", "Model", "Plaka", "Renk", "KM", "Yıl", "Tip", "Yakıt Türü", "Vites"};
         ArrayList<Object[]> carList = this.carManager.getForTable(col_car.length, this.carManager.findAll());
         createTable(this.tmdl_car, this.tbl_car, col_car, carList);
     }
@@ -384,6 +388,20 @@ public class AdminView extends Layout {
         tableRowSelect(this.tbl_booking);
         this.booking_menu = new JPopupMenu();
         this.booking_menu.add("Rezervasyon Yap").addActionListener(e -> {
+            int selectCarId = this.getTableSelectedRow(this.tbl_booking,0);
+            BookingView bookingView = new BookingView(
+                    this.carManager.getById(selectCarId),
+                    this.fld_strt_date.getText(),
+                    this.fld_fnsh_date.getText()
+            );
+
+            bookingView.addWindowListener(new WindowAdapter() {
+                @Override
+                public void windowClosed(WindowEvent e) {
+                    loadBookingTable(null);
+                    loadBookingFilter();
+                }
+            });
 
         });
         btn_booking_search.addActionListener(e -> {
@@ -395,6 +413,13 @@ public class AdminView extends Layout {
                     (Model.Gear) cmb_booking_gear.getSelectedItem()
 
             );
+            ArrayList<Object[]> carBookingRow = this.carManager.getForTable(this.col_car.length,carList);
+            loadBookingTable(carBookingRow);
+        });
+
+        btn_cncl_booking.addActionListener(e -> {
+            loadBookingFilter();
+
         });
 
 
@@ -415,6 +440,13 @@ public class AdminView extends Layout {
     }
 
 
+    //Tarih girdilerini bu formatta customcreate ile bu şekilde oluşturmaya yarar ve  eğer tarih girlmezse settext deki gibi doldurulur.
+    private void createUIComponents() throws ParseException {
+        this.fld_strt_date= new JFormattedTextField(new MaskFormatter("##/##/####"));
+        this.fld_strt_date.setText("10/10/2023");
+        this.fld_fnsh_date= new JFormattedTextField(new MaskFormatter("##/##/####"));
+        this.fld_fnsh_date.setText("16/10/2023");
+    }
 }
 
 

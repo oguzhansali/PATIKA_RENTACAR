@@ -1,17 +1,24 @@
 package business;
 
 import core.Helper;
+import dao.BookDao;
 import dao.CarDao;
+import entity.Book;
 import entity.Car;
 import entity.Model;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
 public class CarManager {
     private final CarDao carDao;
+    private final BookDao bookDao;
 
     public CarManager(){
         this.carDao=new CarDao();
+        this.bookDao = new BookDao();
+
     }
     public Car getById(int id){
         return this.carDao.getById(id);
@@ -66,8 +73,15 @@ public class CarManager {
 
         ArrayList<String> where = new ArrayList<>();
         ArrayList<String> joinWhere = new ArrayList<>();
+        ArrayList<String> bookOrWhere = new ArrayList<>();
 
         joinWhere.add("c.car_model_id = m.model_id");
+
+        //In Date Fortmat = 10/10/2023 dd/mm/yyyy
+        //Out Date Format = 2023-10-10 Y-m-d
+        strt_date= LocalDate.parse(strt_date, DateTimeFormatter.ofPattern("dd/MM/yyy")).toString();
+        fnsh_date= LocalDate.parse(fnsh_date, DateTimeFormatter.ofPattern("dd/MM/yyy")).toString();
+
 
         if (fuel != null){
             where.add("m.model_fuel = '" + fuel.toString() + "'");
@@ -88,8 +102,28 @@ public class CarManager {
         if (whereStr.length()>0){
             query += " WHERE "+ whereStr;
         }
-        System.out.println(query);
 
-        return new ArrayList<>();
+        ArrayList<Car> searchedCarList = this.carDao.selectByQuery(query);
+
+
+        bookOrWhere.add("('"+strt_date+"' BETWEEN book_strt_date AND book_fnsh_date)");
+        bookOrWhere.add("('"+fnsh_date+"' BETWEEN book_strt_date AND book_fnsh_date)");
+        bookOrWhere.add("(book_strt_date BETWEEN '"+strt_date+"' AND '"+fnsh_date+"')");
+        bookOrWhere.add("(book_fnsh_date BETWEEN '"+strt_date+"' AND '"+fnsh_date+"')");
+
+        String bookOrWhereStr = String.join(" OR ", bookOrWhere);
+        String bookQuery = "SELECT * FROM public.book WHERE " + bookOrWhereStr;
+
+        ArrayList<Book> bookList = this.bookDao.selectByQuery(bookQuery);
+        ArrayList<Integer> busyCarId = new ArrayList<>();
+        for (Book book : bookList){
+            busyCarId.add(book.getCar_id());
+
+        }
+        //Bu işlem ile busyCarId listesinin içinde meşgul arabaları listeden siler.
+        searchedCarList.removeIf(car -> busyCarId.contains(car.getId()));
+
+
+        return searchedCarList;
     }
 }
