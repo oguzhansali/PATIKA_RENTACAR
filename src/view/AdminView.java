@@ -14,12 +14,8 @@ import entity.User;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
+import java.awt.event.*;
 import java.util.ArrayList;
-
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
 
 public class AdminView extends Layout {
     private JPanel container;
@@ -45,13 +41,25 @@ public class AdminView extends Layout {
     private DefaultTableModel tmdl_brand = new DefaultTableModel();
     private DefaultTableModel tmdl_model = new DefaultTableModel();
     private DefaultTableModel tmdl_car = new DefaultTableModel();
+    private DefaultTableModel tmdl_booking = new DefaultTableModel();
     private BrandManager brandManager;
     private ModelManager modelManager;
     private JTable tbl_car;
+    private JPanel pnl_booking;
+    private JTable tbl_booking;
+    private JScrollPane scrl_booking;
+    private JFormattedTextField fld_strt_date;
+    private JFormattedTextField fld_fnsh_date;
+    private JComboBox<Model.Gear> cmb_booking_gear;
+    private JComboBox<Model.Fuel> cmb_booking_fuel;
+    private JComboBox<Model.Type> cmb_booking_type;
+    private JButton btn_booking_search;
+    private JPanel pnl_booking_search;
     private CarManager carManager;
     private JPopupMenu brand_menu;
     private JPopupMenu model_menu;
     private JPopupMenu car_menu;
+    private JPopupMenu booking_menu;
     private Object[] col_model;
 
 
@@ -80,6 +88,13 @@ public class AdminView extends Layout {
         //Car Tab Menu
         loadCarTable();
         loadCarComponent();
+
+        //Booking Tab menu
+        loadBookingTable(null);
+        loadBookingComponent();
+        loadBookingFilter();
+
+
 
         //Sağ tıklama sorununu bu şekilde çözdüm!!!
         this.tbl_brand.addMouseListener(new MouseAdapter() {
@@ -145,6 +160,28 @@ public class AdminView extends Layout {
         });
 
         this.tbl_car.setComponentPopupMenu(car_menu);
+
+
+        //Sağ tıklama sorununu bu şekilde çözdüm!!!
+        this.tbl_booking.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mousePressed(MouseEvent e) {
+                showPopup(e);
+            }
+
+            @Override
+            public void mouseReleased(MouseEvent e) {
+                showPopup(e);
+            }
+
+            private void showPopup(MouseEvent e) {
+                if (e.isPopupTrigger()) {
+                    booking_menu.show(e.getComponent(), e.getX(), e.getY());
+                }
+            }
+        });
+
+
     }
 
     public void loadModelTable(ArrayList<Object[]> modelList) {
@@ -341,6 +378,40 @@ public class AdminView extends Layout {
         Object[] col_car = {"ID", "Marka", "Model", "Plaka", "Renk", "KM", "Yıl", "Tip", "Yakıt Türü", "Vites"};
         ArrayList<Object[]> carList = this.carManager.getForTable(col_car.length, this.carManager.findAll());
         createTable(this.tmdl_car, this.tbl_car, col_car, carList);
+    }
+
+    private void loadBookingComponent() {
+        tableRowSelect(this.tbl_booking);
+        this.booking_menu = new JPopupMenu();
+        this.booking_menu.add("Rezervasyon Yap").addActionListener(e -> {
+
+        });
+        btn_booking_search.addActionListener(e -> {
+            ArrayList<Car> carList = this.carManager.searchForBooking(
+                    fld_strt_date.getText(),
+                    fld_fnsh_date.getText(),
+                    (Model.Type) cmb_booking_type.getSelectedItem(),
+                    (Model.Fuel) cmb_booking_fuel.getSelectedItem(),
+                    (Model.Gear) cmb_booking_gear.getSelectedItem()
+
+            );
+        });
+
+
+    }
+
+    private void loadBookingTable(ArrayList<Object[]> carList) {
+        Object[] col_booking_List = {"ID", "Marka", "Model", "Plaka", "Renk", "KM", "Yıl", "Tip", "Yakıt Türü", "Vites"};
+        createTable(this.tmdl_booking, this.tbl_booking, col_booking_List, carList);
+    }
+
+    public void loadBookingFilter() {
+        this.cmb_booking_type.setModel(new DefaultComboBoxModel<>(Model.Type.values()));
+        this.cmb_booking_type.setSelectedItem(null);
+        this.cmb_booking_gear.setModel(new DefaultComboBoxModel<>(Model.Gear.values()));
+        this.cmb_booking_gear.setSelectedItem(null);
+        this.cmb_booking_fuel.setModel(new DefaultComboBoxModel<>(Model.Fuel.values()));
+        this.cmb_booking_fuel.setSelectedItem(null);
     }
 
 

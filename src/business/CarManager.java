@@ -3,6 +3,7 @@ package business;
 import core.Helper;
 import dao.CarDao;
 import entity.Car;
+import entity.Model;
 
 import java.util.ArrayList;
 
@@ -58,5 +59,37 @@ public class CarManager {
             return false;
         }
         return this.carDao.delete(id);
+    }
+
+    public ArrayList<Car> searchForBooking(String strt_date, String fnsh_date, Model.Type type, Model.Fuel fuel, Model.Gear gear){
+        String query = "SELECT * FROM public.car as c LEFT JOIN public.model as m";
+
+        ArrayList<String> where = new ArrayList<>();
+        ArrayList<String> joinWhere = new ArrayList<>();
+
+        joinWhere.add("c.car_model_id = m.model_id");
+
+        if (fuel != null){
+            where.add("m.model_fuel = '" + fuel.toString() + "'");
+        }
+        if (gear != null){
+            where.add("m.model_gear = '" + gear.toString() + "'");
+        }
+        if (type != null){
+            where.add("m.model_type = '" + type.toString() + "'");
+        }
+
+        String whereStr = String.join(" AND ", where);
+        String joinStr = String.join(" AND ", joinWhere);
+
+        if (joinStr.length()>0){
+            query += " ON " + joinStr;
+        }
+        if (whereStr.length()>0){
+            query += " WHERE "+ whereStr;
+        }
+        System.out.println(query);
+
+        return new ArrayList<>();
     }
 }
