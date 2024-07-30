@@ -80,6 +80,9 @@ public class AdminView extends Layout {
         }
         this.lbl_welcome.setText("Hoşgeldiniz : " + this.user.getUsername());
 
+        //
+        loadComponent();
+
         //Brand Tab Menu
         loadBrandTable();
         loadBrandComponent();
@@ -97,6 +100,7 @@ public class AdminView extends Layout {
         loadBookingTable(null);
         loadBookingComponent();
         loadBookingFilter();
+
 
 
 
@@ -188,6 +192,16 @@ public class AdminView extends Layout {
 
     }
 
+    private void loadComponent(){
+        btn_logout.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                dispose();
+                LoginView loginView = new LoginView();
+            }
+        });
+    }
+
     public void loadModelTable(ArrayList<Object[]> modelList) {
         this.col_model = new Object[]{"Model ID", "Marka", "Model Adı", "Tip", "Yıl", "Yakıt Türü", "Vites"};
         if (modelList == null) {
@@ -238,6 +252,7 @@ public class AdminView extends Layout {
                 public void windowClosed(WindowEvent e) {
                     loadModelTable(null);
                     loadCarTable();
+                    loadBookingTable(null);
                 }
             });
 
@@ -306,6 +321,7 @@ public class AdminView extends Layout {
                     loadModelTable(null);
                     loadModelFilterBrand();
                     loadCarTable();
+                    loadBookingTable(null);
                 }
             });
         });
@@ -447,6 +463,7 @@ public class AdminView extends Layout {
         this.fld_fnsh_date= new JFormattedTextField(new MaskFormatter("##/##/####"));
         this.fld_fnsh_date.setText("16/10/2023");
     }
+
 }
 
 

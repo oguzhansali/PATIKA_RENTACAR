@@ -3,6 +3,10 @@ package business;
 import dao.UserDao;
 import entity.User;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+
 public class UserManager {
     private final UserDao userDao;
 

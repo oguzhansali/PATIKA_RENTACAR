@@ -37,7 +37,10 @@ public class LoginView extends Layout {
                 if (loginUser==null){
                     Helper.showMsg("notFound");
                 }else {
+                   // if loginUser.getRole()=="admin"
                     AdminView adminView=new AdminView(loginUser);
+                   // else
+                      // "yeni oluştutdugun"
                     dispose();
                 }
             }

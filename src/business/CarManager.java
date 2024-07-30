@@ -68,7 +68,8 @@ public class CarManager {
         return this.carDao.delete(id);
     }
 
-    public ArrayList<Car> searchForBooking(String strt_date, String fnsh_date, Model.Type type, Model.Fuel fuel, Model.Gear gear){
+    public ArrayList<Car>
+    searchForBooking(String strt_date, String fnsh_date, Model.Type type, Model.Fuel fuel, Model.Gear gear){
         String query = "SELECT * FROM public.car as c LEFT JOIN public.model as m";
 
         ArrayList<String> where = new ArrayList<>();
